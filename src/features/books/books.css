@@ -1,0 +1,45 @@
+.book{
+  display: flex;
+  gap: 14px;
+  margin: 10px;
+}
+.book div{
+  background-color:#2E3440;
+  padding:0 10px;
+  border-radius: 5px;
+}
+.table-container{
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* table styles  */
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #4d5666;
+  text-align: left;
+  padding:10px 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #343946;
+}
+tr:hover{
+  background-color: #2E3440;
+}
+td button{
+  background-color: #3266c0;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 12px;
+  color: rgb(223, 223, 223);
+  cursor: pointer;
+}
+td button:last-child{
+  background-color: rgb(207, 54, 54);
+  margin-left: 4px;
+}
