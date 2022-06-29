@@ -1,14 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import './books.css';
+import { deleteBook } from './BooksSlice';
 
 
 const ViewBooks = () => {
   const books = useSelector(state => state.BooksReducer.books);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const deleteAction = id => {
-    console.log("delete", id)
+  dispatch(deleteBook(id))  
   }
   const editAction = id => {
     console.log("edit", id)

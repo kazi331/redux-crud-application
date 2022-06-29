@@ -18,11 +18,11 @@ const AddBook = () => {
   const handleAddBook = (e) => {
     e.preventDefault();
     setNumber(number + 1)
-    console.log(number)
+
     const title = e.target.title.value;
     const author = e.target.author.value;
     const book = { title, author, id }
-    console.log(book)
+
     dispatch(addBook(book))
     // navigate('/books', {replace: true})
   }
