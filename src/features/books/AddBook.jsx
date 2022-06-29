@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import './addBook.css';
 import { addBook } from './BooksSlice';
 import ViewBooks from './ViewBooks';
@@ -10,7 +11,7 @@ const AddBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [title, setTitle] = useState("")
-  const id = useSelector(state => state.BooksReducer.books.length + 1);
+  // const id = useSelector(state => state.BooksReducer.books.length + 1);
   // const [author, setAuthor] = useState("")
 
   const [number, setNumber] = useState(1)
@@ -21,7 +22,8 @@ const AddBook = () => {
 
     const title = e.target.title.value;
     const author = e.target.author.value;
-    const book = { title, author, id }
+    const book = { title, author, id: uuidv4() }
+    console.log(book)
 
     dispatch(addBook(book))
     // navigate('/books', {replace: true})
@@ -33,11 +35,11 @@ const AddBook = () => {
       <form onSubmit={handleAddBook}>
         <div className="title">
           <label htmlFor="title">Title</label>
-          <input name="title"  type="text" id="title" placeholder='Book Title' autoComplete="off" defaultValue={`Book ${number }`} />
+          <input name="title" type="text" id="title" placeholder='Book Title' autoComplete="off" defaultValue={`Book ${number}`} />
         </div>
         <div className="author">
           <label htmlFor="author">Author</label>
-          <input name="author" type="text" id="author" placeholder='Book Writer'  defaultValue={`author ${number}`} />
+          <input name="author" type="text" id="author" placeholder='Book Writer' defaultValue={`author ${number}`} />
         </div>
         <input type="submit" value="Add Book" />
       </form>

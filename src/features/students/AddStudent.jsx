@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addStudent } from "./studentSlice";
 import ViewStudents from "./ViewStudents";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function AddStudent() {
-  const id = useSelector(state=> state.StudentReducer.students.length +1);
+  // const id = useSelector(state=> state.StudentReducer.students.length +1);
   const dispatch = useDispatch();
 
   const handleAddStudent = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const roll = e.target.roll.value;
+    const id = uuidv4();
     const student = {id, name, roll }
     console.log(student);
     dispatch(addStudent(student))

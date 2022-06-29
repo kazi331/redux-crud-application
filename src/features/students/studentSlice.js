@@ -1,8 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid';
 
 const initialStudents = {students: [
-  {id: 1, name: 'Sayem', roll: 23},
-  {id: 2, name: 'Sayem', roll: 23},
+  {id: uuidv4(), name: 'Sayem', roll: 23},
+  {id: uuidv4(), name: 'Sayem', roll: 23},
 ]}
 export const studentsSlice = createSlice({
   name: 'students',
